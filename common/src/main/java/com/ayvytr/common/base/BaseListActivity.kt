@@ -2,6 +2,7 @@ package com.ayvytr.common.base
 
 import android.annotation.SuppressLint
 import android.os.Bundle
+import androidx.annotation.CallSuper
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.ayvytr.baseadapter.EmptyAdapter
@@ -33,6 +34,7 @@ abstract class BaseListActivity<T: BaseViewModel<IView>, B>: BaseActivity<T>() {
 
     protected lateinit var emptyAdapter: EmptyAdapter<B>
 
+    @CallSuper
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
         findRecyclerView()

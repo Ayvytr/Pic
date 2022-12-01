@@ -6,7 +6,7 @@ import kotlinx.coroutines.delay
 
 object Kt {
     suspend fun countDown(
-        times: Int = C.COUNT_DOWN_60,
+        times: Int = c.COUNT_DOWN_60,
         @IntRange(from = 1)
         intervalMills: Int = 1000,
         action: (Int) -> Unit
