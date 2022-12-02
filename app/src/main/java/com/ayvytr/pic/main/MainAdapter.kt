@@ -8,6 +8,7 @@ import com.ayvytr.common.load
 import com.ayvytr.ktx.context.getScreenWidth
 import com.ayvytr.pic.R
 import com.ayvytr.pic.bean.Path
+import com.bumptech.glide.Glide
 
 /**
  * @author Administrator
@@ -18,7 +19,11 @@ class MainAdapter(context: Context):
     val photoHeight = context.getScreenWidth() / 2
 
     override fun onBindView(holder: ViewHolder, t: Path, position: Int, payloads: List<Any>) {
-        holder.getView<ImageView>(R.id.iv).load(t.previewPhoto)
+        val iv = holder.getView<ImageView>(R.id.iv)
+        Glide.with(context)
+            .load(t.previewPhoto)
+            .centerCrop()
+            .into(iv)
 
         holder.setText(R.id.tv_name, t.name)
         holder.setText(R.id.tv_count, t.count.toString())

@@ -8,6 +8,7 @@ import com.ayvytr.common.dialog.ConfirmDialog
 import com.ayvytr.flow.BaseActivity
 import com.ayvytr.flow.base.IView
 import com.ayvytr.flow.vm.BaseViewModel
+import com.ayvytr.ktx.context.getColorCompat
 import com.ayvytr.ktx.ui.getContext
 import com.ayvytr.pic.R
 import com.ayvytr.pic.bean.Photo

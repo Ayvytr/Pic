@@ -9,6 +9,7 @@ import com.ayvytr.common.base.BaseListActivity
 import com.ayvytr.common.c
 import com.ayvytr.flow.base.IView
 import com.ayvytr.flow.vm.BaseViewModel
+import com.ayvytr.ktx.context.getColorCompat
 import com.ayvytr.ktx.ui.getContext
 import com.ayvytr.ktx.ui.startActivity
 import com.ayvytr.pic.R
@@ -32,6 +33,7 @@ class PhotoListActivity: BaseListActivity<BaseViewModel<IView>, Photo>() {
 
     override fun initView(savedInstanceState: Bundle?) {
         super.initView(savedInstanceState)
+        recyclerView.setBackgroundColor(getColorCompat(R.color.black))
 
         recyclerView.layoutManager =
             StaggeredGridLayoutManager(2, StaggeredGridLayoutManager.VERTICAL)
