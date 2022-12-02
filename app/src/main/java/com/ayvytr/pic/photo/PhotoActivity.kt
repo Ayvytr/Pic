@@ -69,7 +69,9 @@ class PhotoActivity: BaseActivity<BaseViewModel<IView>>() {
 
     private fun showPhotoDetailDialog() {
         val text = "${photo.name}\n${photo.path}\n${photo.size}\n" +
-                "${photo.width}×${photo.height}\n "
+                "${photo.width}×${photo.height}\n" +
+                photo.modifiedDateStr()
+
         ConfirmDialog(getContext(), text).showCancel(false).show()
     }
 }

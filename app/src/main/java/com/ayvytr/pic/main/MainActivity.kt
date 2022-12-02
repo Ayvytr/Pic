@@ -34,7 +34,9 @@ class MainActivity: BaseListActivity<MainViewModel, Path>() {
         MediaStore.Images.Media.SIZE,
         MediaStore.Images.Media.DISPLAY_NAME,
         MediaStore.Images.Media.HEIGHT,
-        MediaStore.Images.Media.WIDTH
+        MediaStore.Images.Media.WIDTH,
+        MediaStore.Images.Media.DATE_ADDED,
+        MediaStore.Images.Media.DATE_MODIFIED
     )
 
     val photoMap = mutableMapOf<String, MutableList<Photo>>()
@@ -163,7 +165,16 @@ class MainActivity: BaseListActivity<MainViewModel, Path>() {
                     val heightIndex = cursor.getColumnIndex(MediaStore.Images.Media.HEIGHT)
                     val height = cursor.getInt(heightIndex)
 
-                    val photo = Photo(name, path, filePath, Storage(size), width, height)
+                    val addedIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_ADDED)
+                    val addedSecond = cursor.getInt(addedIndex)
+
+                    val modifiedIndex = cursor.getColumnIndex(MediaStore.Images.Media.DATE_ADDED)
+                    val modifiedSecond = cursor.getInt(modifiedIndex)
+
+                    val photo = Photo(
+                        name, path, filePath, Storage(size), width, height, addedSecond * 1000L,
+                        modifiedSecond * 1000L
+                    )
 
                     val containsPath = photoMap.containsKey(path)
                     if (containsPath) {
