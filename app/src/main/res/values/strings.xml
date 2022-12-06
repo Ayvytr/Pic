@@ -6,4 +6,10 @@
     <string name="sure_delete_photo">确认删除此图片？</string>
     <string name="file_delete_failed">删除文件失败</string>
     <string name="photo_delete_failed">图片删除失败</string>
+    <string name="sort_by">文件排序方式</string>
+    <string name="name_sort">时间排序</string>
+    <string name="preview_type">预览类型</string>
+    <string name="first_photo">首张图</string>
+    <string name="settings">设置</string>
+    <string name="photo_lib">图库</string>
 </resources>

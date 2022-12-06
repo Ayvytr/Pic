@@ -1,9 +1,12 @@
 package com.ayvytr.pic.main
 
 import android.content.Context
+import android.graphics.drawable.ColorDrawable
 import android.widget.ImageView
 import com.ayvytr.baseadapter.EmptyAdapter
 import com.ayvytr.baseadapter.ViewHolder
+import com.ayvytr.common.MmkvManager
+import com.ayvytr.common.bean.PreviewType
 import com.ayvytr.common.load
 import com.ayvytr.ktx.context.getScreenWidth
 import com.ayvytr.pic.R
@@ -20,10 +23,14 @@ class MainAdapter(context: Context):
 
     override fun onBindView(holder: ViewHolder, t: Path, position: Int, payloads: List<Any>) {
         val iv = holder.getView<ImageView>(R.id.iv)
-        Glide.with(context)
-            .load(t.previewPhoto)
-            .centerCrop()
-            .into(iv)
+        if(MmkvManager.getPreviewType() == PreviewType.IMAGE) {
+            Glide.with(context)
+                .load(t.previewPhoto)
+                .centerCrop()
+                .into(iv)
+        } else {
+            iv.setImageDrawable(ColorDrawable(t.previewColor))
+        }
 
         holder.setText(R.id.tv_name, t.name)
         holder.setText(R.id.tv_count, t.count.toString())

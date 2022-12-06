@@ -1,5 +1,5 @@
 package com.ayvytr.pic.event
 
-class FileDeletedEvent {
+class PreviewTypeChangedEvent {
 
 }

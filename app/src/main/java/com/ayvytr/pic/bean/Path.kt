@@ -1,5 +1,7 @@
 package com.ayvytr.pic.bean
 
+import com.ayvytr.common.bean.PreviewType
+
 /**
  * @author Administrator
  */
